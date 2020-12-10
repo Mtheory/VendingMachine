@@ -1,0 +1,55 @@
+﻿@model VendingMachine.ViewModels.DrinkViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <br />
+    <br />
+    <br />
+    <div class="text-left" style="height:100%;">
+        <h2>Drink Selection: </h2>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <table class="table table-borderless tab">
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                @foreach (var drink in Model.Drinks)
+                {
+                    <tr>
+                        <td class="text-left" style="font-size : 2rem;">@drink.Name</td>
+                        <td>
+                            <a href="#" onclick="makeDrink(@drink.DrinkId)" style="float:right;" class="btn btn-outline-secondary btn-lg" role="button" aria-disabled="true"><i class="glyphicon glyphicon-glass" style="font-size: 1.8rem;"></i></a>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <br />
+            <br />
+            <br />
+            <div class="text-left">
+                <h4>Display: </h4>
+            </div>
+            <div class="card" style="height: 5.5rem; background-color: mediumseagreen; color: white;">
+                <div class="card-body">
+                    <p id="process" class="center" style="display: inline-block; margin-left: 4%; margin-top: 1.5%"></p>
+                    <p class="dot-windmill" style="display: inline-block; position: absolute; left: 90%; top: 20%; visibility: hidden;"></p>
+                </div>
+            </div>           
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}
+
